@@ -1,40 +1,36 @@
-Python 3.12.6 (tags/v3.12.6:a4a2d2b, Sep  6 2024, 20:11:23) [MSC v.1940 64 bit (AMD64)] on win32
-Type "help", "copyright", "credits" or "license()" for more information.
->>> # What is Python?
-... # Python is a high-level, interpreted, object-oriented, and general-purpose programming language.
-... # It is easy to learn and used for Web Development, Data Science, AI, Machine Learning, Automation, and Software Development.
-... 
-... # Features of Python
-... 
-... # Easy to Learn
-... # Simple English-like syntax.
-... 
-... # Interpreted Language
-... # Executes code line by line.
-... 
-... # High-Level Language
-... # No need to manage memory manually.
-... 
-... # Object-Oriented
-... # Supports classes and objects.
-... 
-... # Platform Independent
-... # Runs on Windows, Linux, and macOS.
-... 
-... # Open Source
-... # Free to use.
-... 
-... # Portable
-... # Same code runs on different operating systems.
-... 
-... # Large Standard Library
-... # Provides many built-in modules.
-... 
-... # Dynamically Typed
-... # No need to declare variable data types.
-... 
-... # Applications of Python
-... 
+
+# What is Python?
+# Python is a high-level, interpreted, object-oriented, and general-purpose programming language.
+# It is easy to learn and used for Web Development, Data Science, AI, Machine Learning, Automation, and Software Development.
+ 
+# Features of Python
+ 
+# Easy to Learn
+# Simple English-like syntax.
+ 
+# Interpreted Language
+# Executes code line by line.
+ 
+# High-Level Language
+# No need to manage memory manually.
+ 
+# Object-Oriented
+# Supports classes and objects.
+ 
+# Platform Independent
+# Runs on Windows, Linux, and macOS.
+# Open Source
+# Free to use.# Portable
+# Same code runs on different operating systems.
+
+# Large Standard Library
+# Provides many built-in modules.
+
+# Dynamically Typed
+# No need to declare variable data types.
+
+# Applications of Python
+
 # Web Development
 # Data Science
 # Artificial Intelligence
