@@ -1,0 +1,375 @@
+# ============================================================
+# PYTHON FUNCTIONS - VS CODE PRACTICE
+# ============================================================
+
+
+# ------------------------------------------------------------
+# 1. BASIC FUNCTION
+# ------------------------------------------------------------
+
+def greet():
+    print("Hello, Welcome to Python")
+
+
+greet()
+
+
+# ------------------------------------------------------------
+# 2. FUNCTION WITH PARAMETER
+# ------------------------------------------------------------
+
+def greet_user(name):
+    print("Hello", name)
+
+
+greet_user("Abdul")
+
+
+# ------------------------------------------------------------
+# 3. FUNCTION WITH MULTIPLE PARAMETERS
+# ------------------------------------------------------------
+
+def add(a, b):
+    print(a + b)
+
+
+add(10, 20)
+
+
+# ------------------------------------------------------------
+# 4. FUNCTION WITH RETURN
+# ------------------------------------------------------------
+
+def addition(a, b):
+    return a + b
+
+
+result = addition(10, 20)
+print("Addition:", result)
+
+
+# ------------------------------------------------------------
+# 5. NO ARGUMENT + NO RETURN
+# ------------------------------------------------------------
+
+def message():
+    print("Good Morning")
+
+
+message()
+
+
+# ------------------------------------------------------------
+# 6. ARGUMENT + NO RETURN
+# ------------------------------------------------------------
+
+def student(name):
+    print("Student Name:", name)
+
+
+student("Abdul")
+
+
+# ------------------------------------------------------------
+# 7. NO ARGUMENT + RETURN
+# ------------------------------------------------------------
+
+def get_number():
+    return 100
+
+
+number = get_number()
+print("Number:", number)
+
+
+# ------------------------------------------------------------
+# 8. ARGUMENT + RETURN
+# ------------------------------------------------------------
+
+def multiply(a, b):
+    return a * b
+
+
+result = multiply(5, 4)
+print("Multiplication:", result)
+
+
+# ------------------------------------------------------------
+# 9. POSITIONAL ARGUMENTS
+# ------------------------------------------------------------
+
+def student_info(name, age):
+    print("Name:", name)
+    print("Age:", age)
+
+
+student_info("Abdul", 21)
+
+
+# ------------------------------------------------------------
+# 10. KEYWORD ARGUMENTS
+# ------------------------------------------------------------
+
+def employee(name, salary):
+    print("Name:", name)
+    print("Salary:", salary)
+
+
+employee(salary=30000, name="Abdul")
+
+
+# ------------------------------------------------------------
+# 11. DEFAULT ARGUMENT
+# ------------------------------------------------------------
+
+def greet(name="Student"):
+    print("Hello", name)
+
+
+greet()
+greet("Abdul")
+
+
+# ------------------------------------------------------------
+# 12. *args
+# ------------------------------------------------------------
+
+def total(*numbers):
+    print(numbers)
+
+
+total(10, 20, 30, 40)
+
+
+# *args example
+
+def add_numbers(*numbers):
+    total = 0
+
+    for number in numbers:
+        total = total + number
+
+    return total
+
+
+print(add_numbers(10, 20))
+print(add_numbers(10, 20, 30))
+print(add_numbers(10, 20, 30, 40))
+
+
+# ------------------------------------------------------------
+# 13. **kwargs
+# ------------------------------------------------------------
+
+def student_details(**details):
+    print(details)
+
+
+student_details(name="Abdul", age=21, course="Python")
+
+
+# **kwargs example
+
+def display_details(**details):
+
+    for key, value in details.items():
+        print(key, ":", value)
+
+
+display_details(
+    name="Abdul",
+    age=21,
+    course="Python"
+)
+
+
+# ------------------------------------------------------------
+# 14. LOCAL VARIABLE
+# ------------------------------------------------------------
+
+def test():
+
+    x = 10
+
+    print("Local variable:", x)
+
+
+test()
+
+
+# ------------------------------------------------------------
+# 15. GLOBAL VARIABLE
+# ------------------------------------------------------------
+
+x = 100
+
+
+def show():
+
+    print("Global variable:", x)
+
+
+show()
+
+
+# ------------------------------------------------------------
+# 16. GLOBAL KEYWORD
+# ------------------------------------------------------------
+
+x = 10
+
+
+def change():
+
+    global x
+
+    x = 50
+
+
+change()
+
+print("Changed value:", x)
+
+
+# ------------------------------------------------------------
+# 17. NESTED FUNCTION
+# ------------------------------------------------------------
+
+def outer():
+
+    print("Outer function")
+
+    def inner():
+
+        print("Inner function")
+
+    inner()
+
+
+outer()
+
+
+# ------------------------------------------------------------
+# 18. RECURSIVE FUNCTION
+# ------------------------------------------------------------
+
+def factorial(n):
+
+    if n == 1:
+        return 1
+
+    return n * factorial(n - 1)
+
+
+print("Factorial:", factorial(5))
+
+
+# ------------------------------------------------------------
+# 19. LAMBDA FUNCTION
+# ------------------------------------------------------------
+
+square = lambda x: x * x
+
+print("Square:", square(5))
+
+
+# Lambda with two arguments
+
+add = lambda a, b: a + b
+
+print("Lambda Addition:", add(10, 20))
+
+
+# ------------------------------------------------------------
+# 20. HIGHER-ORDER FUNCTION
+# ------------------------------------------------------------
+
+def square_number(n):
+
+    return n * n
+
+
+def calculate(function, number):
+
+    return function(number)
+
+
+result = calculate(square_number, 5)
+
+print("Higher Order Function:", result)
+
+
+# ------------------------------------------------------------
+# 21. FUNCTION AS A VARIABLE
+# ------------------------------------------------------------
+
+def hello():
+
+    print("Hello Python")
+
+
+x = hello
+
+x()
+
+
+# ------------------------------------------------------------
+# 22. MULTIPLE RETURN VALUES
+# ------------------------------------------------------------
+
+def calculate(a, b):
+
+    addition = a + b
+    subtraction = a - b
+    multiplication = a * b
+
+    return addition, subtraction, multiplication
+
+
+x, y, z = calculate(10, 5)
+
+print("Addition:", x)
+print("Subtraction:", y)
+print("Multiplication:", z)
+
+
+# ------------------------------------------------------------
+# 23. DOCSTRING
+# ------------------------------------------------------------
+
+def welcome():
+
+    """This function prints a welcome message."""
+
+    print("Welcome to Python")
+
+
+welcome()
+
+print(welcome.__doc__)
+
+
+# ------------------------------------------------------------
+# 24. TYPE HINTS
+# ------------------------------------------------------------
+
+def add_numbers(a: int, b: int) -> int:
+
+    return a + b
+
+
+print(add_numbers(10, 20))
+
+
+# ------------------------------------------------------------
+# 25. FUNCTION WITHOUT RETURN
+# ------------------------------------------------------------
+
+def test_return():
+
+    print("Hello")
+
+
+result = test_return()
+
+print("Return value:", result)

@@ -1,0 +1,19 @@
+n=int(input())
+senior=eval(input())
+ans=0
+if n<=100:
+    ans=n*1.5
+elif n<=200:
+    ans=n*2.5
+elif n<=500:
+    ans=n*4
+else:
+    ans=n*6
+
+if senior:
+    ans=ans-(ans*10/100)
+if n>800:
+    ans=ans+(ans*5/100)
+
+print(ans)
+
