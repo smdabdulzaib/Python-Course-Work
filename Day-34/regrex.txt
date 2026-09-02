@@ -1,0 +1,978 @@
+chatgpt link:https://chatgpt.com/share/6a958014-8c6c-83e8-ae5e-029420b8fba0
+
+
+
+
+# REGULAR EXPRESSION IN PYTHON
+
+
+
+# ============================================================
+
+# 1. WHAT IS REGULAR EXPRESSION?
+
+# ============================================================
+
+# Regular Expression (Regex) is a pattern used to search,
+
+# find, extract, validate, replace, or split text.
+
+# In Python, we use the 're' module for Regular Expressions.
+
+import re
+
+# ============================================================
+
+# 2. WHY DO WE USE REGULAR EXPRESSION?
+
+# ============================================================
+
+# Regex is mainly used for:
+
+#
+
+# 1. Searching specific patterns in text
+
+# 2. Finding numbers
+
+# 3. Finding email addresses
+
+# 4. Finding phone numbers
+
+# 5. Validating input
+
+# 6. Replacing text
+
+# 7. Extracting useful information
+
+# 8. Splitting text
+
+# 9. Cleaning data
+
+#
+
+# Example:
+
+#
+
+# text = "My phone number is 9876543210"
+
+#
+
+# We can find the 10-digit phone number using:
+
+#
+
+# re.search(r"\d{10}", text)
+
+# ============================================================
+
+# 3. WHAT HAPPENS WITHOUT REGEX?
+
+# ============================================================
+
+# Python can work without Regex.
+
+# Regex is NOT compulsory.
+
+#
+
+# For simple operations, normal string methods are enough.
+
+#
+
+# Example:
+
+#
+
+# text = "9876543210"
+
+#
+
+# if text.isdigit():
+
+# print("Only numbers")
+
+#
+
+# But when the requirement becomes complex, Regex makes
+
+# the work easier and reduces the amount of code.
+
+#
+
+# Example:
+
+#
+
+# If a large paragraph contains many phone numbers,
+
+# emails, dates, etc., manually checking every character
+
+# would require more loops, conditions and string operations.
+
+#
+
+# Regex allows us to describe the required PATTERN.
+
+# ============================================================
+
+# 4. BASIC REGEX FUNCTIONS
+
+# ============================================================
+
+# Python's re module provides several important functions:
+
+#
+
+# re.search()
+
+# re.match()
+
+# re.fullmatch()
+
+# re.findall()
+
+# re.finditer()
+
+# re.sub()
+
+# re.split()
+
+# ============================================================
+
+# 5. re.search()
+
+# ============================================================
+
+# search() searches for a pattern anywhere in the string.
+
+text = "My age is 21"
+
+result = re.search(r"\d+", text)
+
+if result:
+print("Number found")
+
+# \d  -> digit
+
+# +   -> one or more
+
+# ============================================================
+
+# 6. re.match()
+
+# ============================================================
+
+# match() checks for a pattern only at the BEGINNING
+
+# of the string.
+
+text = "Hello Python"
+
+result = re.match(r"Hello", text)
+
+if result:
+print("Matched")
+
+# "Hello" is at the beginning, so it matches.
+
+# ============================================================
+
+# 7. re.fullmatch()
+
+# ============================================================
+
+# fullmatch() checks whether the ENTIRE string matches
+
+# the given pattern.
+
+text = "12345"
+
+result = re.fullmatch(r"\d+", text)
+
+if result:
+print("Valid")
+
+# Entire string contains digits, so it matches.
+
+# ============================================================
+
+# 8. re.findall()
+
+# ============================================================
+
+# findall() returns ALL matching values.
+
+text = "I have 10 apples, 20 bananas and 30 oranges"
+
+numbers = re.findall(r"\d+", text)
+
+print(numbers)
+
+# Output:
+
+# ['10', '20', '30']
+
+# IMPORTANT:
+
+#
+
+# search()  -> finds the first match
+
+# findall() -> finds all matches
+
+# ============================================================
+
+# 9. re.finditer()
+
+# ============================================================
+
+# finditer() returns all matches as Match objects.
+
+text = "My marks are 85 and 92"
+
+matches = re.finditer(r"\d+", text)
+
+for match in matches:
+print(match.group())
+
+# Output:
+
+# 85
+
+# 92
+
+# ============================================================
+
+# 10. re.sub()
+
+# ============================================================
+
+# sub() is used to REPLACE matching text.
+
+text = "Python is difficult"
+
+result = re.sub("difficult", "easy", text)
+
+print(result)
+
+# Output:
+
+# Python is easy
+
+# Example: Hide all digits
+
+text = "My phone is 9876543210"
+
+result = re.sub(r"\d", "*", text)
+
+print(result)
+
+# Output:
+
+# My phone is **********
+
+# ============================================================
+
+# 11. re.split()
+
+# ============================================================
+
+# split() can split text using a Regex pattern.
+
+text = "apple,banana;orange:grapes"
+
+result = re.split(r"[,;:]", text)
+
+print(result)
+
+# Output:
+
+# ['apple', 'banana', 'orange', 'grapes']
+
+# ============================================================
+
+# 12. IMPORTANT REGEX CHARACTERS
+
+# ============================================================
+
+# -------------------- \d --------------------
+
+# \d means DIGIT.
+
+# Matches:
+
+# 0 1 2 3 4 5 6 7 8 9
+
+text = "abc123"
+
+print(re.findall(r"\d", text))
+
+# Output:
+
+# ['1', '2', '3']
+
+# -------------------- \D --------------------
+
+# \D means NOT A DIGIT.
+
+text = "abc123"
+
+print(re.findall(r"\D", text))
+
+# Output:
+
+# ['a', 'b', 'c']
+
+# -------------------- \w --------------------
+
+# \w means WORD CHARACTER.
+
+#
+
+# Usually includes:
+
+# A-Z
+
+# a-z
+
+# 0-9
+
+# _
+
+text = "Hello Python_123"
+
+print(re.findall(r"\w+", text))
+
+# Output:
+
+# ['Hello', 'Python_123']
+
+# -------------------- \W --------------------
+
+# \W means NOT A WORD CHARACTER.
+
+# -------------------- \s --------------------
+
+# \s means WHITESPACE.
+
+#
+
+# It can match:
+
+# space
+
+# tab
+
+# newline
+
+text = "Hello Python"
+
+print(re.findall(r"\s", text))
+
+# Output:
+
+# [' ']
+
+# -------------------- \S --------------------
+
+# \S means NOT WHITESPACE.
+
+# ============================================================
+
+# 13. CHARACTER CLASS [ ]
+
+# ============================================================
+
+# [abc] means:
+
+# Match either a, b or c.
+
+text = "hello"
+
+print(re.findall(r"[aeiou]", text))
+
+# Output:
+
+# ['e', 'o']
+
+# ============================================================
+
+# 14. CHARACTER RANGES
+
+# ============================================================
+
+# [a-z] -> lowercase letters
+
+# [A-Z] -> uppercase letters
+
+# [0-9] -> digits
+
+text = "Hello PYTHON 123"
+
+print(re.findall(r"[A-Z]", text))
+
+# Output:
+
+# ['H', 'P', 'Y', 'T', 'H', 'O', 'N']
+
+# ============================================================
+
+# 15. NEGATIVE CHARACTER CLASS
+
+# ============================================================
+
+# [^abc] means:
+
+# Match anything EXCEPT a, b and c.
+
+text = "abcdef"
+
+print(re.findall(r"[^abc]", text))
+
+# Output:
+
+# ['d', 'e', 'f']
+
+# ============================================================
+
+# 16. DOT .
+
+# ============================================================
+
+# . means any character except newline by default.
+
+text = "cat cot cut c9t"
+
+print(re.findall(r"c.t", text))
+
+# Output:
+
+# ['cat', 'cot', 'cut', 'c9t']
+
+# c.t means:
+
+#
+
+# c -> letter c
+
+# . -> any one character
+
+# t -> letter t
+
+# ============================================================
+
+# 17. ^ SYMBOL
+
+# ============================================================
+
+# ^ means BEGINNING of the string.
+
+text = "Hello Python"
+
+result = re.search(r"^Hello", text)
+
+if result:
+print("Starts with Hello")
+
+# ============================================================
+
+# 18. $ SYMBOL
+
+# ============================================================
+
+# $ means END of the string.
+
+text = "I like Python"
+
+result = re.search(r"Python$", text)
+
+if result:
+print("Ends with Python")
+
+# ============================================================
+
+# 19. ^ AND $ TOGETHER
+
+# ============================================================
+
+# ^Hello$
+
+#
+
+# Means the ENTIRE string must be exactly:
+
+# Hello
+
+text = "Hello"
+
+if re.fullmatch(r"Hello", text):
+print("Exactly Hello")
+
+# ============================================================
+
+# 20. QUANTIFIERS
+
+# ============================================================
+
+# Quantifiers tell Regex HOW MANY TIMES a pattern can occur.
+
+# * -> ZERO OR MORE
+
+# a*
+
+#
+
+# Means:
+
+# zero or more 'a' characters.
+
+# + -> ONE OR MORE
+
+# \d+
+
+#
+
+# Means:
+
+# one or more digits.
+
+# ? -> ZERO OR ONE
+
+# \d?
+
+#
+
+# Means:
+
+# zero or one digit.
+
+# {n} -> EXACTLY n TIMES
+
+# \d{10}
+
+#
+
+# Means:
+
+# exactly 10 digits.
+
+# {n,} -> n OR MORE
+
+# \d{3,}
+
+#
+
+# Means:
+
+# minimum 3 digits.
+
+# {n,m} -> BETWEEN n AND m
+
+# \d{3,5}
+
+#
+
+# Means:
+
+# minimum 3 and maximum 5 digits.
+
+# ============================================================
+
+# 21. + EXAMPLE
+
+# ============================================================
+
+text = "My numbers are 123 and 4567"
+
+print(re.findall(r"\d+", text))
+
+# Output:
+
+# ['123', '4567']
+
+# ============================================================
+
+# 22. {10} EXAMPLE - PHONE NUMBER
+
+# ============================================================
+
+text = "My phone number is 9876543210"
+
+print(re.findall(r"\d{10}", text))
+
+# Output:
+
+# ['9876543210']
+
+# ============================================================
+
+# 23. {3,5} EXAMPLE
+
+# ============================================================
+
+text = "12 123 1234 12345 123456"
+
+print(re.findall(r"\d{3,5}", text))
+
+# It looks for 3 to 5 digits.
+
+# ============================================================
+
+# 24. | OR OPERATOR
+
+# ============================================================
+
+# | means OR.
+
+# cat|dog
+
+#
+
+# Means:
+
+# Match cat OR dog.
+
+text = "I have a cat and a dog"
+
+print(re.findall(r"cat|dog", text))
+
+# Output:
+
+# ['cat', 'dog']
+
+# ============================================================
+
+# 25. PARENTHESES ( )
+
+# ============================================================
+
+# Parentheses are used for GROUPING.
+
+# (cat|dog)
+
+#
+
+# Means:
+
+# cat OR dog as one group.
+
+# ============================================================
+
+# 26. WORD BOUNDARY \b
+
+# ============================================================
+
+# \b represents a word boundary.
+
+text = "I like Python and Python programming"
+
+print(re.findall(r"\bPython\b", text))
+
+# Finds the complete word Python.
+
+# ============================================================
+
+# 27. RAW STRING r""
+
+# ============================================================
+
+# Regex commonly uses r before the string.
+
+# Example:
+
+pattern = r"\d+"
+
+# r means RAW STRING.
+
+#
+
+# It helps Python handle backslashes properly.
+
+#
+
+# Good practice:
+
+#
+
+# r"\d+"
+
+# r"\w+"
+
+# r"\s+"
+
+# r"\d{10}"
+
+# ============================================================
+
+# 28. PHONE NUMBER EXAMPLE
+
+# ============================================================
+
+import re
+
+text = "Call me at 9876543210"
+
+phone = re.search(r"\d{10}", text)
+
+if phone:
+print("Phone number found:", phone.group())
+
+# ============================================================
+
+# 29. EMAIL EXAMPLE
+
+# ============================================================
+
+email = "[zaib@gmail.com](mailto:zaib@gmail.com)"
+
+pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$"
+
+if re.fullmatch(pattern, email):
+print("Valid Email")
+else:
+print("Invalid Email")
+
+# ============================================================
+
+# 30. FIND ALL PHONE NUMBERS
+
+# ============================================================
+
+text = """
+Rahul: 9876543210
+Ali: 9123456789
+"""
+
+phones = re.findall(r"\d{10}", text)
+
+print(phones)
+
+# Output:
+
+# ['9876543210', '9123456789']
+
+# ============================================================
+
+# 31. FIND ALL NUMBERS
+
+# ============================================================
+
+text = "I have 10 apples, 20 bananas and 30 oranges"
+
+numbers = re.findall(r"\d+", text)
+
+print(numbers)
+
+# Output:
+
+# ['10', '20', '30']
+
+# ============================================================
+
+# 32. REMOVE SPECIAL CHARACTERS
+
+# ============================================================
+
+text = "Hello@Python#World!"
+
+result = re.sub(r"[^a-zA-Z0-9 ]", "", text)
+
+print(result)
+
+# Output:
+
+# HelloPythonWorld
+
+# ============================================================
+
+# 33. COMMON REAL-WORLD USES
+
+# ============================================================
+
+# 1. Email validation
+
+# 2. Phone number validation
+
+# 3. Password validation
+
+# 4. Extracting numbers
+
+# 5. Extracting dates
+
+# 6. Extracting emails
+
+# 7. Extracting phone numbers
+
+# 8. Web scraping
+
+# 9. Data cleaning
+
+# 10. Searching text
+
+# 11. Replacing text
+
+# 12. Splitting text
+
+# 13. Log file analysis
+
+# 14. Form validation
+
+# ============================================================
+
+# 34. IMPORTANT CHEAT SHEET
+
+# ============================================================
+
+# \d       -> digit
+
+# \D       -> not a digit
+
+# \w       -> word character
+
+# \W       -> not a word character
+
+# \s       -> whitespace
+
+# \S       -> not whitespace
+
+# .        -> any character
+
+# ^        -> beginning
+
+# $        -> end
+
+# *        -> 0 or more
+
+# +        -> 1 or more
+
+# ?        -> 0 or 1
+
+# {5}      -> exactly 5
+
+# {2,5}    -> 2 to 5
+
+# {2,}     -> 2 or more
+
+# [abc]    -> a or b or c
+
+# [a-z]    -> lowercase letters
+
+# [A-Z]    -> uppercase letters
+
+# [0-9]    -> digits
+
+# [^abc]   -> anything except a, b, c
+
+# |        -> OR
+
+# ( )      -> group
+
+# \b       -> word boundary
+
+# ============================================================
+
+# 35. MOST IMPORTANT DIFFERENCES
+
+# ============================================================
+
+# re.search()
+
+# -> Finds a pattern anywhere.
+
+#
+
+# re.match()
+
+# -> Checks only at the beginning.
+
+#
+
+# re.fullmatch()
+
+# -> Entire string must match.
+
+#
+
+# re.findall()
+
+# -> Returns all matching values.
+
+#
+
+# re.finditer()
+
+# -> Returns all matches as Match objects.
+
+#
+
+# re.sub()
+
+# -> Replaces matching text.
+
+#
+
+# re.split()
+
+# -> Splits text using a pattern.
+
+# ============================================================
+
+# FINAL DEFINITION
+
+# ============================================================
+
+# Regular Expression (Regex) is a pattern-matching technique
+
+# used to search, find, extract, validate, replace and split
+
+# text.
+
+#
+
+# Python provides the 're' module to work with Regular
+
+# Expressions.
+
+#
+
+# Regex is useful when we need to find a PATTERN instead of
+
+# searching for one fixed value.
+
+#
+
+# Without Regex, simple text operations are still possible,
+
+# but complex pattern-based operations usually require more
+
+# code using loops, conditions and string methods.
+
+#
+
+# Example:
+
+#
+
+# r"\d{10}"
+
+#
+
+# Means:
+
+#
+
+# \d   -> digit
+
+# {10} -> exactly 10 times
+
+#
+
+# Therefore:
+
+#
+
+# r"\d{10}" -> exactly 10 digits
+
+# ============================================================
